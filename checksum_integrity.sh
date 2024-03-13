@@ -10,12 +10,12 @@
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=ib156@student.le.ac.uk
 
-# Check if the fastq_checksums.md5 file already exists and remove it to avoid appending to an old file
+# Checking if the fastq_checksums.md5 file already exists and removing it to avoid appending to an old file (due to trial/errors)
 if [ -f fastq_checksums.md5 ]; then
     rm fastq_checksums.md5
 fi
 
-# Generate checksums for all FASTQ files starting with SRR and ending with .fastq
+# Generating checksums for all FASTQ files starting with SRR and ending with .fastq
 for file in SRR*.fastq; do
     md5sum "$file" >> fastq_checksums.md5
 done
