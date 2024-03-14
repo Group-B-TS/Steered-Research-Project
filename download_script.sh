@@ -2,7 +2,7 @@
 
 #!/bin/bash
 
-TSV_FILE="/home/i/ib156/Steered_project/PRJNA837007-info.tsv"
+TSV_FILE="/scratch/alice/i/ib156/Steered_project/PRJNA837007-info.tsv"
 
 while IFS=$'\t' read -r srx srr platform
 do
