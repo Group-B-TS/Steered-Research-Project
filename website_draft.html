@@ -2,7 +2,44 @@
 <html dir="ltr" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>BTS</title>
+  <title>BTS summary</title>
+  <style>
+        /* CSS to center the title */
+        h1 {
+            text-align: center;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px; /* adjust sidebar width */
+            height: 100%;
+            background-color: #f0f0f0;
+            padding: 20px;
+            overflow-y: auto; /* Enable vertical scrolling if content overflows */
+        }
+        .content {
+            margin-left: 225px; /* Adjust text margin */
+            padding: 20px;
+        }
+        /* Styles for sidebar links */
+        .sidebar a {
+            display: block;
+            padding: 10px 0;s
+            color: #333;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+    </style>
   <link rel="stylesheet" href="/default.css">
   <link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">
 </head>
@@ -11,19 +48,30 @@
     <!-- site-wide header -->
     <h1>Group BTS genome dataset analysis</h1>
   </header>
-  <main>
-    <img src="/home/sm1073/Documents/steered_group/BTS.gif" alt="BTS GIF">
-  </main>
-Hi 
-  <nav>
-    <!-- link to re-analysis from Hamlin et al -->
-    <!-- link to our parallel analysis -->
-    <!-- link to query the data for genes by name (OPTIONAL) -->
-  </nav>
+ <div class="sidebar">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </div>
 
+    <div class="content">
+        <main>
+	<img src="/home/sm1073/Documents/steered_group/BTS.gif" alt="BTS GIF">
+	</main>
+        <p>Hello and welcome to the group B(TS) webpage. Here we will provide a summary of our attempt of the analysis by Hamelin et al. (2023), as well as our own cell type clustering pipeline.
+	</p>
+
+        <h2 id="section1">Section 1</h2>
+        <p>This is the content of section 1.</p>
+
+        <h2 id="section2">Section 2</h2>
+        <p>This is the content of section 2.</p>
+    </div>
   <footer>
     <!-- site-wide footer -->
   </footer>
-
 </body>
 </html>
