@@ -2,6 +2,17 @@
 
 #!/bin/bash
 
+#SBATCH --job-name=fastqc_analysis
+#SBATCH --output=fastqc_%j.out
+#SBATCH --error=fastqc_%j.err
+#SBATCH --time=3-00:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=32G
+#SBATCH --partition=medium
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=ib156@student.le.ac.uk
+
 TSV_FILE="/scratch/alice/i/ib156/Steered_project/PRJNA837007-info.tsv"
 
 while IFS=$'\t' read -r srx srr platform
