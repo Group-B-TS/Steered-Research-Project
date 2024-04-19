@@ -1,7 +1,8 @@
-# Based on Eleftherios' first commit for the script entitled 'RFigure1.d_clustering.R', 
-# the script added steps of normalization and some preprocessing as well as 
-# experimenting with perplexity values and learning rates compared to his first commit.
-# The script is mostly a draft and for testing, many values and names need adjusting!
+# Based on Eleftherios' first commit for the script entitled 'RFigure1.d_clustering.R'.
+# In this script I added steps of normalization and some preprocessing as well as 
+# experimented with perplexity values and learning rates compared to his first commit.
+# This script is mostly a draft and for testing, many values and names need adjusting!
+# This script was used to produce a final and refined version of Figure 1.d.
 
 # Set working directory
 setwd("/home/ib156/Desktop/")
