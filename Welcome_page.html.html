@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+        <!-- Script 1 "Yes" button -->
+        <h2>Do you wish to proceed with the results of our project?</h2>
+        <a href="index.html" class="button" onclick="alert('Thank you for proceeding!')">Yes</a>
+        <button class="button no-button" id="noButton">No</button>
+        <!-- Spotify Song Embed -->
+<iframe style="border-radius:12px; margin-top: 20px;" src="https://open.spotify.com/embed/track/3uRLwBjI2TahxslcMTvpFs?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<head>
+  <meta charset="utf-8">
+  <title>BTS summary</title>
+  <style>
+        /* stylesheet */
+       body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  background-color: #000000; /* Black background */
+  color: #FFFFFF; /* White text for contrast */
+}
+.button {
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 5px;
+  background-color: #8A2BE2; /* A shade of purple */
+  color: white; /* White text */
+  border: none;
+  border-radius: 12px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+.no-button:hover {
+  background-color: #9B30FF; /* Lighter purple on hover */
+}
+    </style>
+  <link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">
+  <script>
+  let messageIndex = 0;
+const messages = ["All this hard work", "Are you sure?", "Really?", "!!"];
+
+document.getElementById('noButton').onmouseover = function(event) {
+  const noButton = event.target;
+  const maxX = window.innerWidth - noButton.clientWidth;
+  const maxY = window.innerHeight - noButton.clientHeight;
+  const newX = Math.random() * maxX;
+  const newY = Math.random() * maxY;
+
+  // Change the text of the button
+  noButton.textContent = messages[messageIndex];
+  messageIndex = (messageIndex + 1) % messages.length; // Cycle through messages
+
+  noButton.style.position = 'fixed'; // Use 'absolute' if layout issues occur
+  noButton.style.left = newX + 'px';
+  noButton.style.top = newY + 'px';
+};
+  </script>
+</head>
+<body>
+
+  <header>
+    <!-- site-wide header -->
+    <h1>Group BTS genome dataset analysis</h1>
+  </header>
+
+    </div>
+  <footer>
+    <!-- site-wide footer -->
+  </footer>
+</body>
+</html>
