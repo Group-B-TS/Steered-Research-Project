@@ -37,6 +37,7 @@ seurat_object <- NormalizeData(seurat_object, normalization.method = "LogNormali
 
 # Identify highly variable features
 seurat_object <- FindVariableFeatures(seurat_object, selection.method = "vst", nfeatures = 2000)
+seurat_object <- ScaleData(seurat_object, features = VariableFeatures(object = seurat_object))
 
 # Run PCA
 seurat_object <- RunPCA(seurat_object, features = VariableFeatures(object = seurat_object))
