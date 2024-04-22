@@ -1,22 +1,5 @@
-###                   Overview:             
-
-### This R script is designed to replicate Figures 1D and 1E from the cited article, focusing on the heterogeneity 
-# in metastatic breast cancer through single-cell RNA sequencing analysis.
-# The script demonstrates the robustness of the Seurat package in performing comprehensive single-cell analysis, with a focus on:
-#   - Using the exact filtered single-cell RNA-seq data as provided by the authors of the study.
-#   - Normalizing the dataset to facilitate accurate comparisons across single cells.
-#   - Executing PCA to distill the dataset into its principal components, thus simplifying the complexity inherent to single-cell data.
-#   - Employing t-SNE as a method for dimensionality reduction, aiming to visualize cellular clusters in a two-dimensional space.
-#   - Visualizing the cell clusters in t-SNE plots, enriched with annotations to reflect known cell types or lines.
-
-#### Data Source: 
-# The script processes the exact same filtered dataset made publicly available by the original authors, which can be retrieved from:
-# https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202695
-
-### Purpose:
-# The primary goal of this script is to challenge and verify the reproducibility of published findings by employing novel bioinformatics pipelines.
-# It is crafted to assess whether different computational strategies, such as those embedded in the Seurat package, lead to similar interpretations 
-#of cellular heterogeneity as those reported in the original study.
+### This R script is designed to replicate Figures 1D and 1E from the cited article. This is not the final script, but it ensured the removal of NA values and replaced underscores
+# from gene names (Data) as it was required from the Seurat package.
 
 ### Script Origin:
 # This code was structured upon and inspired by the "Zainab Practice.R" and "Eleftherios t-SNE Clusterig.R" script.
