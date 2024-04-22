@@ -58,3 +58,54 @@ combined_coverage <- do.call("rbind", lapply(coverage_files, read.csv, header = 
 final_coverage_file <- paste0(coverage_output_dir, "final_count_matrix.csv")
 write.csv(combined_coverage, final_coverage_file, row.names = TRUE)
 cat("All coverage files have been merged into:", final_coverage_file, "\n") 
+
+# Loading GTF file and convert to SAF format (necessary according errors)
+gtf_path <- "/home/ib156/Desktop/Homo_sapiens.GRCh38.96_chr.gtf"
+gtf_data <- import(gtf_path)
+saf_data <- data.frame(
+  GeneID = mcols(gtf_data)$gene_id,
+  Chr = seqnames(gtf_data),
+  Start = start(gtf_data),
+  End = end(gtf_data),
+  Strand = ifelse(strand(gtf_data) == "+", 1, "-1")
+)
+
+# Definining SAF file path
+saf_path <- "/home/ib156/Desktop/Homo_sapiens.GRCh38.96.saf"
+write.table(saf_data, saf_path, quote = FALSE, sep = "\t", row.names = FALSE, col.names = TRUE)
+
+# Running featureCounts on BAM files and saving individual count CSV files
+for (bam_file in bam_files) {
+  output_file <- paste0(counts_output_dir, basename(bam_file), "_counts.csv")
+  counts <- featureCounts(files = bam_file,
+                          annot.ext = saf_path,
+                          isPairedEnd = TRUE,
+                          strandSpecific = 1,
+                          countChimericFragments = TRUE)
+  counts_df <- as.data.frame(counts$counts, check.rows = FALSE, check.names = FALSE)
+  rownames(counts_df) <- counts$annotation$GeneID
+  write.csv(counts_df, output_file, row.names = TRUE)
+  cat("Completed featureCounts for", bam_file, "\n")
+}
+
+# Function to read CSV files with gene IDs as row names
+read_counts <- function(file) {
+  read.csv(file, row.names = 1, check.names = FALSE)
+}
+
+# Reading and combining count CSV files
+count_files <- list.files(counts_output_dir, pattern = "_counts\\.csv$", full.names = TRUE)
+all_counts_list <- lapply(count_files, read_counts)
+
+# Verifying consistency in row names
+if (!all(sapply(all_counts_list, function(df) all(rownames(df) == rownames(all_counts_list[[1]]))))) {
+  stop("Mismatch in row names/order among count files.")
+}
+
+# Combining count data frames with cbind
+all_counts <- do.call(cbind, all_counts_list)
+
+# Writing the combined counts to the final CSV file
+final_counts_file <- paste0(counts_output_dir, "final_count_matrix.csv")
+write.csv(all_counts, final_counts_file, row.names = TRUE)
+cat("All count files have been merged into:", final_counts_file, "\n")
