@@ -33,6 +33,9 @@ setwd("/alice-home/1/e/es452/Research_Project/Zainab/")
 data <- read.csv("GSE202695_counts_afterQC.csv", row.names = 1)
 metadata <- read.csv("GSE202695_metadata.csv", row.names = 1)
 
+# Replace underscores in feature (gene) names with dashes as Seurat prefers
+rownames(data) <- gsub("_", "-", rownames(data))
+
 # Create a Seurat object with the raw count data
 seurat_obj <- CreateSeuratObject(counts = data)
 
@@ -93,7 +96,7 @@ tsne_plot <- ggplot(tsne_data, aes(x = TSNE1, y = TSNE2, color = model)) +
   geom_point(alpha = 0.8) +
   scale_color_manual(values = colors) +
   labs(title = "t-SNE Plot of Sequenced Cells by Model", x = "t-SNE Dimension 1", y = "t-SNE Dimension 2") +
-  theme_classic() +
+  theme_classic() 
 print(tsne_plot)
 
 ### Creating Figure 1e: t-SNE Plot of Sequenced Cells by Type ###
@@ -110,5 +113,5 @@ tsne_plot_by_type <- ggplot(tsne_data, aes(x = TSNE1, y = TSNE2, color = type)) 
   geom_point(size = 1.5, shape = 16) +
   scale_color_manual(values = c("Lung" = "blue", "Tumor" = "orange")) +
   labs(title = "t-SNE Plot of Sequenced Cells by Type", x = "t-SNE Dimension 1", y = "t-SNE Dimension 2") +
-  theme_classic() +
+  theme_classic() 
 print(tsne_plot_by_type)
