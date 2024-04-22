@@ -1,0 +1,58 @@
+###This script represents the first attempt to process and analyze the data, providing preliminary insights into the dataset's structure and clustering patterns.
+
+# Set working directory
+setwd("/alice-home/1/e/es452/Research_Project/")
+# Download Libraries
+library(Rtsne)
+library(ggplot2)
+
+#Read Data
+data <- read.csv("GSE202695_counts_afterQC.csv", header = TRUE)
+data <-data[,-1]
+
+meta <- read.csv("GSE202695_metadata.csv", header = TRUE)
+
+# Transpose data so that samples are rows and genes are columns
+data_t <- t(data)
+
+# Convert to data frame, if it isn't already one
+data_t <- as.data.frame(data_t)
+
+# It's important that the rows of data_t match with rows of meta
+rownames(data_t) <- meta[, 1]
+
+# Perform PCA for dimensionality reduction
+pca_results <- prcomp(t(data_t), scale. = TRUE)  # Scaling can be important for PCA
+
+# Choose a number of principal components to keep
+pca_data <- as.data.frame(pca_results$x[,1:50])
+
+set.seed(20)
+tsne_results <- Rtsne(as.matrix(data_t), dims = 2, perplexity = 25, verbose = TRUE, max_iter = 500)
+ 
+tsne_data <- as.data.frame(tsne_results$Y)
+tsne_data$Model <- meta[, 'model']  # Replace 'model' with the actual column name in meta
+
+name_mapping <- c("HBRX1921" = "PDX1",
+                  "HBRX2344" = "PDX4",
+                  "HBRX2353" = "PDX2",
+                  "HBRX3078" = "PDX3",
+                  "MDAMB231" = "MDAMB231")
+
+# Map the 'model' column in meta to the new names using the mapping vector
+meta$Model <- name_mapping[meta$model]
+
+# Define the colors for the new names
+my_colors <- c("PDX3" = "red", "PDX4" = "blue", "PDX1" = "green", "MDAMB231" = "orange", "PDX2" = "purple")
+
+# Add this new 'Model' column to the tsne_data
+tsne_data$Model <- meta$Model
+
+# Generate Plot (Figure1d)
+tsne_plot <- ggplot(tsne_data, aes(x = V1, y = V2, color = Model)) +
+  geom_point() +
+  labs(title = "t-SNE Plot of Sequenced Cells by Model of Origin",
+       x = "t-SNE Dimension 1",
+       y = "t-SNE Dimension 2") +
+  theme_classic()
+print(tsne_plot)
