@@ -74,12 +74,16 @@ name_mapping <- c("HBRX1921" = "PDX1",
                   "HBRX3078" = "PDX3",
                   "MDAMB231" = "MDAMB231")
 
+colors <- c("PDX1" = "green", "PDX2" = "purple", "PDX3" = "red", 
+           "PDX4" = "blue", "MDAMB231" = "orange")
+
 # Apply the descriptive name mapping to the 'model' column in the plot data.
 tsne_data$model <- factor(name_mapping[tsne_data$model])
 
 # Generate and display a t-SNE plot colored by 'model', illustrating the distribution of different cell models in the projected space.
 tsne_plot <- ggplot(tsne_data, aes(x = TSNE1, y = TSNE2, color = model)) +
   geom_point(size = 1, alpha = 0.8) +
+  scale_color_manual(values = colors) +
   labs(title = "t-SNE Plot of Sequenced Cells by Model",
        x = "t-SNE Dimension 1", y = "t-SNE Dimension 2") +
   theme_classic()
@@ -100,5 +104,8 @@ tsne_plot_by_type <- ggplot(tsne_data, aes(x = TSNE1, y = TSNE2, color = Type)) 
   scale_color_manual(values = c("Lung" = "blue", "Tumor" = "orange")) +
   labs(title = "t-SNE Plot of Sequenced Cells by Type",
        x = "t-SNE Dimension 1", y = "t-SNE Dimension 2") +
+  theme_classic() 
+print(tsne_plot_by_type)
+
   theme_classic() 
 print(tsne_plot_by_type)
