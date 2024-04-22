@@ -73,12 +73,16 @@ name_mapping <- c("HBRX1921" = "PDX1",
                   "HBRX3078" = "PDX3",
                   "MDAMB231" = "MDAMB231")
 
+colors <- c("PDX1" = "green", "PDX2" = "purple", "PDX3" = "red", 
+            "PDX4" = "blue", "MDAMB231" = "orange")
+
 # Apply the mapping to the 'cell_line' column for clearer visualization.
 tsne_data$cell_line <- factor(name_mapping[tsne_data$cell_line])
 
 # Generate the t-SNE plot, colored by 'cell_line', and display it.
 tsne_plot_by_cell_line <- ggplot(tsne_data, aes(x = TSNE1, y = TSNE2, color = cell_line)) +
   geom_point(size = 1, alpha = 0.8) +
+  scale_color_manual(values = colors) +
   labs(title = "t-SNE Plot of Sequenced Cells by Cell Line",
        x = "t-SNE Dimension 1", y = "t-SNE Dimension 2") +
   theme_classic() +
