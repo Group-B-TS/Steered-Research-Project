@@ -67,10 +67,10 @@ tsne_data <- tsne_data[!is.na(tsne_data$cell_line), ]
 tsne_data$cell_line <- factor(tsne_data$cell_line)
 
 # Define a mapping from cell line codes to more descriptive labels.
-name_mapping <- c("HBRX1921" = "PDX1",
+name_mapping <- c("HBRX1921" = "PDX3",
                   "HBRX2344" = "PDX4",
                   "HBRX2353" = "PDX2",
-                  "HBRX3078" = "PDX3",
+                  "HBRX3078" = "PDX1",
                   "MDAMB231" = "MDAMB231")
 
 colors <- c("PDX1" = "green", "PDX2" = "purple", "PDX3" = "red", 
