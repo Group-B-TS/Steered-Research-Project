@@ -68,10 +68,10 @@ tsne_data$model <- metadata$model[match(rownames(tsne_data), rownames(metadata))
 tsne_data <- tsne_data[!is.na(tsne_data$model), ]
 
 # Define a mapping from model identifiers to more descriptive names for better visualization clarity.
-name_mapping <- c("HBRX1921" = "PDX1",
+name_mapping <- c("HBRX1921" = "PDX3",
                   "HBRX2344" = "PDX4",
                   "HBRX2353" = "PDX2",
-                  "HBRX3078" = "PDX3",
+                  "HBRX3078" = "PDX1",
                   "MDAMB231" = "MDAMB231")
 
 colors <- c("PDX1" = "green", "PDX2" = "purple", "PDX3" = "red", 
