@@ -1,45 +1,40 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>BTS summary</title>
-  <style>
-        /* stylesheet */
-        h1 {
-            text-align: center;
-            font-family: Times New Roman, sans-serif;
-        }
-        img {
-            display: block;
-            margin-left: 400px;
-        }
-        body {
-            background-color: #e1f5fe; 
-            font-family: Arial, sans-serif;
-        }
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200px; /* adjust sidebar width */
-            height: 100%;
-            background-color: #bbdefb;
-            padding: 20px;
-            overflow-y: auto; /* Enable vertical scrolling if content overflows */
-        }
-        .content {
-            margin-left: 225px; /* Adjust text margin */
-            padding: 20px;
-        }
-        /* Styles for sidebar links */
-        .sidebar a {
-            display: block;
-            padding: 10px 0;
-            color: #333;
-        }
-        .sidebar a:hover {
-            background-color: #ddd;
-        }
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+.content {
+    color: #FFFFFF;
+    margin-left: 225px;
+    padding: 20px;
+}
+
+/* Styles for sidebar links */
+.sidebar a {
+    display: block;
+    padding: 10px 0;
+    color: #C8A2C8; /* Lilac color for links */
+    text-decoration: none; /* Removes underline from links */
+}
+
+.sidebar a:hover {
+    background-color: #BDA0CB; /* Lighter purple color for hover background */
+    color: #FFFFFF; /* White text color on hover for contrast */
+    text-decoration: underline; /* Underline on hover/focus */
+}
+.figure {
+    margin-bottom: 20px; /* This adds space below each figure /
+}
+
+.img {
+    display: block; /* Ensures the image doesn't have inline white space below it */
+    width: 100%; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space between the image and the caption */
+}
+
+.figcaption {
+    text-align: center; /* Centers the caption text below the image */
+}	
     </style>
   <link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">
 </head>
@@ -59,13 +54,22 @@
 
     <div class="content">
         <main>
-	<img src="BTS.gif" alt="BTS GIF">
 	</main>
         <p>Hello and welcome to the group B(TS) webpage. Here we will provide a summary of our attempt of the analysis by Hamelin et al.(2023), as well as our own cell type clustering pipeline.
 	    </p>
 
-        <h2 id="section1">Re-analysis using the approach described by Hamelin et al.</h2>
-        <p>Content goes here</p>
+        <h2 id="section1">Re-analysis using the approach described by Hamelin et al.(2023)</h2>
+        <p>
+        <!-- Display figure 1.d -->
+	<b>A</b>
+	<img src="1D.png" alt="Figure 1.A" />
+	</p>
+	<p>
+	<!-- Display figure 1.e -->
+	<b>B</b>
+	<img src="1E.png" alt="Figure 1.B" />
+	<figcaption> <b><i>Figure 1. A</b>: t-SNE visualisation of quality-controlled single-cell RNA-seq data by cell line. This plot shows the multidimensional scaling of cells into a two-dimensional space after quality control and filtering of the raw data. Each colour represents a different cell line, demonstrating the clustering of cells based on gene expression profiles; <b>B</b>: t-SNE visualisation of quality-controlled single-cell RNA-seq data by tissue origin. The plot illustrates the results of a t-SNE analysis performed on quality-controlled samples derived from the author's processed raw data. Sequenced cells are categorised by tissue origin, with primary tumour samples shown in orange and cells derived from metastatic sites in blue.</i></figcaption>
+        </p>
 
         <h2 id="section2">Our novel analysis of cell-type clustering by gene expression</h2>
         <p>Content goes here</p>
