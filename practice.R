@@ -80,8 +80,8 @@ tsne_data$model <- metadata$model[match(rownames(tsne_data), rownames(metadata))
 tsne_data <- tsne_data[!is.na(tsne_data$model), ]
 
 # Create a name mapping from raw to more interpretable model names
-name_mapping <- c("HBRX1921" = "PDX1", "HBRX2344" = "PDX4", "HBRX2353" = "PDX2", 
-                  "HBRX3078" = "PDX3", "MDAMB231" = "MDAMB231")
+name_mapping <- c("HBRX1921" = "PDX3", "HBRX2344" = "PDX4", "HBRX2353" = "PDX2", 
+                  "HBRX3078" = "PDX1", "MDAMB231" = "MDAMB231")
 
 # Apply the name mapping to the 'model' column
 tsne_data$model <- factor(name_mapping[tsne_data$model])
