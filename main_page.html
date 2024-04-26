@@ -1,101 +1,101 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>BTS summary</title>
-  <style>
-    /* Resetting some default styles */
-    body, h1, h2, p, ul, li, a {
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Typography enhancements */
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      color: #333;
-      background-color: #f4f4f9;
-      line-height: 1.6;
-    }
-
-    h1, h2 {
-      font-weight: normal;
-      color: #322641;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      text-align: center;
-      padding: 20px;
-    }
-
-    h2 {
-      font-size: 1.5em;
-      margin: 20px 0;
-      padding-left: 20px;
-    }
-
-    p {
-      padding: 0 20px;
-      text-align: justify;
-    }
-
-    /* Styling links */
-    a {
-      color: #d0cbf0;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Layout with Flexbox */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200px;
-      height: 100%;
-      background-color: #322641;
+<!DOCTYPE html>                                                                                                                                                                                                                               
+<html dir="ltr" lang="en">                                                                                                                                                                                                                    
+<head>                                                                                                                                                                                                                                        
+  <meta charset="utf-8">                                                                                                                                                                                                                      
+  <title>BTS summary</title>                                                                                                                                                                                                                  
+  <style>                                                                                                                                                                                                                                     
+    /* Resetting some default styles */                                                                                                                                                                                                       
+    body, h1, h2, p, ul, li, a {                                                                                                                                                                                                              
+      margin: 0;                                                                                                                                                                                                                              
+      padding: 0;                                                                                                                                                                                                                             
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    /* Typography enhancements */                                                                                                                                                                                                             
+    body {                                                                                                                                                                                                                                    
+      font-family: 'Helvetica Neue', Arial, sans-serif;                                                                                                                                                                                       
+      color: #333;                                                                                                                                                                                                                            
+      background-color: #f4f4f9;                                                                                                                                                                                                              
+      line-height: 1.6;                                                                                                                                                                                                                       
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    h1, h2 {                                                                                                                                                                                                                                  
+      font-weight: normal;                                                                                                                                                                                                                    
+      color: #322641;                                                                                                                                                                                                                         
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    h1 {                                                                                                                                                                                                                                      
+      font-size: 2.5em;                                                                                                                                                                                                                       
+      text-align: center;                                                                                                                                                                                                                     
+      padding: 20px;                                                                                                                                                                                                                          
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    h2 {                                                                                                                                                                                                                                      
+      font-size: 1.5em;                                                                                                                                                                                                                       
+      margin: 20px 0;                                                                                                                                                                                                                         
+      padding-left: 20px;                                                                                                                                                                                                                     
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    p {                                                                                                                                                                                                                                       
+      padding: 0 20px;                                                                                                                                                                                                                        
+      text-align: justify;                                                                                                                                                                                                                    
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    /* Styling links */                                                                                                                                                                                                                       
+    a {                                                                                                                                                                                                                                       
+      color: #d0cbf0;                                                                                                                                                                                                                         
+      text-decoration: none;                                                                                                                                                                                                                  
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    a:hover {                                                                                                                                                                                                                                 
+      text-decoration: underline;                                                                                                                                                                                                             
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    /* Layout with Flexbox */                                                                                                                                                                                                                 
+    .sidebar {                                                                                                                                                                                                                                
+      position: fixed;                                                                                                                                                                                                                        
+      top: 0;                                                                                                                                                                                                                                 
+      left: 0;                                                                                                                                                                                                                                
+      width: 200px;                                                                                                                                                                                                                           
+      height: 100%;                                                                                                                                                                                                                           
+      background-color: #322641;                                                                                                                                                                                                              
       color: #fff;
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    .content {
-      margin-left: 220px;
-      padding: 20px;
-    }
-
-    /* Enhancing lists */
-    ul {
-      list-style: none;
-      padding: 20px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    /* Image styles */
-    .figure, img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin: 20px auto;
-    }
-
-    .figcaption {
-      text-align: center;
-      color: #555;
-      margin: 20px auto;
-    }
-
-    .legend {
-      text-align: center;
-      margin-top: 20px;
-      font-style: italic;
+      padding: 20px;                                                                                                                                                                                                                          
+      overflow-y: auto;                                                                                                                                                                                                                       
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    .content {                                                                                                                                                                                                                                
+      margin-left: 220px;                                                                                                                                                                                                                     
+      padding: 20px;                                                                                                                                                                                                                          
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    /* Enhancing lists */                                                                                                                                                                                                                     
+    ul {                                                                                                                                                                                                                                      
+      list-style: none;                                                                                                                                                                                                                       
+      padding: 20px;                                                                                                                                                                                                                          
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    li {                                                                                                                                                                                                                                      
+      margin-bottom: 10px;                                                                                                                                                                                                                    
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    /* Image styles */                                                                                                                                                                                                                        
+    .figure, img {                                                                                                                                                                                                                            
+      display: block;                                                                                                                                                                                                                         
+      max-width: 100%;                                                                                                                                                                                                                        
+      height: auto;                                                                                                                                                                                                                           
+      margin: 20px auto;                                                                                                                                                                                                                      
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    .figcaption {                                                                                                                                                                                                                             
+      text-align: center;                                                                                                                                                                                                                     
+      color: #555;                                                                                                                                                                                                                            
+      margin: 20px auto;                                                                                                                                                                                                                      
+    }                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+    .legend {                                                                                                                                                                                                                                 
+      text-align: center;                                                                                                                                                                                                                     
+      margin-top: 20px;                                                                                                                                                                                                                       
+      font-style: italic;                                                                                                                                                                                                                     
     }
 
     .legend strong {
@@ -118,54 +118,69 @@
       .content {
         margin-left: 0;
       }
-    }
+   }
   </style>
-  <link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">
-</head>
-<body>
-  <header>
-    <h1>Group BTS Genome Dataset Analysis</h1>
-  </header>
-  <div class="sidebar">
-    <h2>Contents</h2>
-    <ul>
-      <li><a href="#section1">Re-analysis</a></li>
-      <li><a href="#section2">Novel analysis</a></li>
-    </ul>
-  </div>
-  <div class="content">
-    <main>
-      <p>Welcome to the Group B(TS) webpage. Here we will provide a summary of our attempts at the analysis by Hamelin et al. (2023), as well as our own cell type clustering pipeline.</p>
-
-      <h2 id="section1">Re-analysis using the approach described by Hamelin et al. (2023)</h2>
-      <div class="figure">
-        <img src="1D.png" alt="Figure 1.A" />
-      </div>
-      <div class="figure">
-        <img src="1E.png" alt="Figure 1.B" />
-      </div>
-      <div class="figure">
-        <img src="rfs1.png" alt="RFS1" />
-      </div>
-      <div class="figure">
-        <img src="rfs2.png" alt="RFS2" />
-      </div>
-      <div class="figure">
-        <img src="rfs3.png" alt="RFS3" />
-      </div>
-      <div class="figure">
-        <img src="tsne.png" alt="t-SNE PDG Quartiles" />
-      </div>
-      <div class="figure">
-        <img src="barplot.png" alt="Bar Plot PDG Quartiles" />
-      </div>
-      <div class="legend">
-        <strong>Figure X:</strong> <span class="label">A</span> t-SNE visualisation of quality-controlled single-cell RNA-seq data by cell line; <span class="label">B</span> t-SNE visualisation of quality-controlled single-cell RNA-seq data by tissue origin; <span class="label">C</span> Description of RFS1; <span class="label">D</span> Description of RFS2; <span class="label">E</span> Description of RFS3; <span class="label">F</span> t-SNE Clustering of Cells by Percentage of Detected Genes (PDG) Quartiles. Colors correspond to PDG quartiles from L1 to L4; <span class="label">G</span> Cluster Composition by PDG Quartiles. Colors represent PDG quartiles from L1 to L4.
-      </div>
-    </main>
-  </div>
-  <footer>
-    <!-- Site-wide footer -->
-  </footer>
-</body>
-</html>
+  <link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">                                                                                                                                                                        
+</head>                                                                                                                                                                                                                                       
+<body>                                                                                                                                                                                                                                        
+  <header>                                                                                                                                                                                                                                    
+    <h1>Group BTS Genome Dataset Analysis</h1>                                                                                                                                                                                                
+  </header>                                                                                                                                                                                                                                   
+  <div class="sidebar">                                                                                                                                                                                                                       
+    <h2>Contents</h2>                                                                                                                                                                                                                         
+    <ul>                                                                                                                                                                                                                                      
+      <li><a href="#section1">Re-analysis</a></li>                                                                                                                                                                                            
+      <li><a href="#section2">Novel analysis</a></li>                                                                                                                                                                                         
+    </ul>                                                                                                                                                                                                                                     
+  </div>                                                                                                                                                                                                                                      
+  <div class="content">                                                                                                                                                                                                                       
+    <main>                                                                                                                                                                                                                                    
+      <p>Welcome to the Group B(TS) webpage. Here we will provide a summary of our attempts at the analysis by Hamelin et al. (2023), as well as our own cell type clustering pipeline.</p>                                                   
+                                                                                                                                                                                                                                              
+      <h2 id="section1">Re-analysis using the approach described by Hamelin et al. (2023)</h2>                                                                                                                                                
+      <div class="figure">                                                                                                                                                                                                                    
+        <img src="figure_1A.png" alt="Figure 1.A" />                                                                                                                                                                                          
+        <p><i><b>Figure 1a</b>: t-SNE visualisation of quality-controlled single-cell RNA-seq data by cell line. This plot shows the multidimensional scaling of cells into a two-dimensional space after quality control and                 
+filtering of the                                                                                                                                                                                                                              
+raw data. Each colour represents a different cell line, demonstrating the clustering of cells based on gene expression profiles.</i></p>                                                                                                      
+      </div>                                                                                                                                                                                                                                  
+      <div class="figure">                                                                                                                                                                                                                    
+        <img src="figure_1B.png" alt="Figure 1.B" />                                                                                                                                                                                          
+        <p><i><b>Figure 1b</b>: t-SNE visualisation of quality-controlled single-cell RNA-seq data by tissue origin. The plot illustrates the results of a t-SNE analysis performed on quality-controlled samples derived from the            
+author's                                                                                                                                                                                                                                      
+processed raw data. Sequenced cells are categorised by tissue origin, with primary tumour samples shown in orange and cells derived from metastatic sites in blue.</i></p>                                                                    
+      </div>                                                                                                                                                                                                                                  
+      <div class="figure">                                                                                                                                                                                                                    
+        <img src="figure_2a.png" alt="RFS1" />                                                                                                                                                                                                
+        <p><i><b>Figure 2a</b>: A Recurrence-Free Survival prediction graph for basal-like breast cancer using the upregulated transcripts found in supercluster A. The x-axis labelled as the time of recovery in months and the y           
+axis is                                                                                                                                                                                                                                       
+labelled as probability which measures the survival rate of each patient. The mini table below the graph shows the number of patients at risk at each interval, with the 5 intervals being the lower quartile, the lower tertile, the         
+median, the upper tertile and the upper quartile in that order (i.e. for this graph, the lower quartile is 302 and the higher quartile is 0).</i></p>                                                                                         
+      </div>                                                                                                                                                                                                                                  
+      <div class="figure">                                                                                                                                                                                                                    
+        <img src="figure_2b.png" alt="RFS2" />                                                                                                                                                                                                
+        <p><i><b>Figure 2b</b>: A Recurrence-Free Survival prediction graph for basal-like breast cancer using the upregulated transcripts found in supercluster B. The x-axis labelled as the time of recovery in months and the y           
+axis is labelled as probability which measures the survival rate of each patient. The mini table below the graph shows the number of patients at risk at each interval, with the 5 intervals being the lower quartile, the lower              
+tertile, the median, the upper tertile and the upper quartile in that order (i.e. for this graph, the lower quartile is 309 and the higher quartile is 0).</i></p>                                                                            
+      </div>                                                                                                                                                                                                                                  
+      <div class="figure">                                                                                                                                                                                                                    
+        <img src="figure_2c.png" alt="RFS3" />                                                                                                                                                                                                
+        <p><i><b>Figure 2c</b>: A Recurrence-Free Survival prediction graph for basal-like breast cancer using the upregulated transcripts found in supercluster C. The x-axis labelled as the time of recovery in months and the y           
+axis is labelled as probability which measures the survival rate of each patient. The mini table below the graph shows the number of patients at risk at each interval, with the 5 intervals being the lower quartile, the lower              
+tertile, the median, the upper tertile and the upper quartile in that order (i.e. for this graph, the lower quartile is 314 and the higher quartile is 0).</i></p>                                                                            
+    </div>                                                                                                                                                                                                                                    
+      <div class="figure">                                                                                                                                                                                                                    
+        <img src="figure_3a.png" alt="t-SNE PDG Quartiles" />                                                                                                                                                                                 
+        <p><i><b>Figure 3a</b>: t-SNE Clustering of Cells by Percentage of Detected Genes(PDG) Quartiles. Colors correspond to PDG quartiles from L1 to L4.</i></p>                                                                           
+      </div>                                                                                                                                                                                                                                  
+      <div class="figure">                                                                                                                                                                                                                    
+        <img src="figure_3b.png" alt="Bar Plot PDG Quartiles" />                                                                                                                                                                              
+        <p><i><b>Figure 3b</b>: Cluster Composition by PDG Quartiles. Colors represent PDG quartiles from L1 to L4 .</i></p>                                                                                                                  
+      </div>                                                                                                                                                                                                                                  
+    </main> 
+  </div>                                                                                                                                                                                                                                      
+  <footer>                                                                                                                                                                                                                                    
+    <!-- Site-wide footer -->                                                                                                                                                                                                                 
+  </footer>                                                                                                                                                                                                                                   
+</body>                                                                                                                                                                                                                                       
+</html>  
