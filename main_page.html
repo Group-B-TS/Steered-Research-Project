@@ -89,7 +89,22 @@
     .figcaption {
       text-align: center;
       color: #555;
-      margin-left: 240px auto;
+      margin: 20px auto;
+    }
+
+    .legend {
+      text-align: center;
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    .legend strong {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .label {
+      font-weight: bold;
     }
 
     /* Responsive design considerations */
@@ -125,15 +140,28 @@
       <h2 id="section1">Re-analysis using the approach described by Hamelin et al. (2023)</h2>
       <div class="figure">
         <img src="1D.png" alt="Figure 1.A" />
-        <figcaption>Figure 1.A: t-SNE visualisation of quality-controlled single-cell RNA-seq data by cell line.</figcaption>
       </div>
       <div class="figure">
         <img src="1E.png" alt="Figure 1.B" />
-        <figcaption>Figure 1.B: t-SNE visualisation of quality-controlled single-cell RNA-seq data by tissue origin.</figcaption>
       </div>
-
-      <h2 id="section2">Our novel analysis of cell-type clustering by gene expression</h2>
-      <p>Content goes here</p>
+      <div class="figure">
+        <img src="rfs1.png" alt="RFS1" />
+      </div>
+      <div class="figure">
+        <img src="rfs2.png" alt="RFS2" />
+      </div>
+      <div class="figure">
+        <img src="rfs3.png" alt="RFS3" />
+      </div>
+      <div class="figure">
+        <img src="tsne.png" alt="t-SNE PDG Quartiles" />
+      </div>
+      <div class="figure">
+        <img src="barplot.png" alt="Bar Plot PDG Quartiles" />
+      </div>
+      <div class="legend">
+        <strong>Figure X:</strong> <span class="label">A</span> t-SNE visualisation of quality-controlled single-cell RNA-seq data by cell line; <span class="label">B</span> t-SNE visualisation of quality-controlled single-cell RNA-seq data by tissue origin; <span class="label">C</span> Description of RFS1; <span class="label">D</span> Description of RFS2; <span class="label">E</span> Description of RFS3; <span class="label">F</span> t-SNE Clustering of Cells by Percentage of Detected Genes (PDG) Quartiles. Colors correspond to PDG quartiles from L1 to L4; <span class="label">G</span> Cluster Composition by PDG Quartiles. Colors represent PDG quartiles from L1 to L4.
+      </div>
     </main>
   </div>
   <footer>
