@@ -57,3 +57,23 @@ seurat_object <- ScaleData(seurat_object, vars.to.regress = "cell_cycle")
 # Visualize UMAP with cell cycle stages
 DimPlot(seurat_object, reduction = "umap", group.by = "cell_cycle", label = TRUE)
 
+# Extract cell identifiers with corresponding cell cycle stages from meta.data
+if ("cell_cycle" %in% names(seurat_object@meta.data)) {
+    cell_ids <- rownames(seurat_object@meta.data)  # These are cell identifiers
+    cell_cycle_stages <- seurat_object@meta.data$cell_cycle  # Extract cell cycle stages
+    
+    # Filter valid entries (non-NA)
+    valid_entries <- !is.na(cell_cycle_stages)
+    if (sum(valid_entries) > 0) {  # Check if there are any valid entries
+        cell_cycle_data <- data.frame(CellID = cell_ids[valid_entries], CellCycleStage = cell_cycle_stages[valid_entries], stringsAsFactors = FALSE)
+        
+        # Write to CSV
+        write.csv(cell_cycle_data, file = "Cell_CycleStages.csv", row.names = FALSE)
+        print("CSV file has been successfully written with data.")
+    } else {
+        print("No valid entries to write to CSV.")
+    }
+} else {
+    print("No cell cycle stage data found in Seurat object metadata.")
+}
+
