@@ -3,14 +3,14 @@
 <head>                                                                                                                                                                                                                                        
   <meta charset="utf-8">                                                                                                                                                                                                                      
   <title>BTS summary</title>                                                                                                                                                                                                                  
-  <style>                                                                                                                                                                                                                                     
-    /* Resetting some default styles */                                                                                                                                                                                                       
+  <style> <!-- Integrated CSS stylesheet-->                                                                                                                                                                                                   
+    <!-- Resetting some default styles -->                                                                                                                                                                                                    
     body, h1, h2, p, ul, li, a {                                                                                                                                                                                                              
       margin: 0;                                                                                                                                                                                                                              
       padding: 0;                                                                                                                                                                                                                             
     }                                                                                                                                                                                                                                         
                                                                                                                                                                                                                                               
-    /* Typography enhancements */                                                                                                                                                                                                             
+    <!-- Typography enhancements -->                                                                                                                                                                                                          
     body {                                                                                                                                                                                                                                    
       font-family: 'Helvetica Neue', Arial, sans-serif;                                                                                                                                                                                       
       color: #333;                                                                                                                                                                                                                            
@@ -40,7 +40,7 @@
       text-align: justify;                                                                                                                                                                                                                    
     }                                                                                                                                                                                                                                         
                                                                                                                                                                                                                                               
-    /* Styling links */                                                                                                                                                                                                                       
+    <!-- Styling links -->                                                                                                                                                                                                                    
     a {                                                                                                                                                                                                                                       
       color: #d0cbf0;                                                                                                                                                                                                                         
       text-decoration: none;                                                                                                                                                                                                                  
@@ -50,7 +50,7 @@
       text-decoration: underline;                                                                                                                                                                                                             
     }                                                                                                                                                                                                                                         
                                                                                                                                                                                                                                               
-    /* Layout with Flexbox */                                                                                                                                                                                                                 
+    <!-- Sidebar layout with Flexbox -->                                                                                                                                                                                                      
     .sidebar {                                                                                                                                                                                                                                
       position: fixed;                                                                                                                                                                                                                        
       top: 0;                                                                                                                                                                                                                                 
@@ -58,17 +58,16 @@
       width: 200px;                                                                                                                                                                                                                           
       height: 100%;                                                                                                                                                                                                                           
       background-color: #322641;                                                                                                                                                                                                              
-      color: #fff;
-      padding: 20px;                                                                                                                                                                                                                          
-      overflow-y: auto;                                                                                                                                                                                                                       
-    }                                                                                                                                                                                                                                         
-                                                                                                                                                                                                                                              
+      color: #fff; 
+      overflow-y: auto;
+    }
+
     .content {                                                                                                                                                                                                                                
       margin-left: 220px;                                                                                                                                                                                                                     
       padding: 20px;                                                                                                                                                                                                                          
     }                                                                                                                                                                                                                                         
                                                                                                                                                                                                                                               
-    /* Enhancing lists */                                                                                                                                                                                                                     
+    <!-- Enhancing lists -->                                                                                                                                                                                                                  
     ul {                                                                                                                                                                                                                                      
       list-style: none;                                                                                                                                                                                                                       
       padding: 20px;                                                                                                                                                                                                                          
@@ -78,7 +77,7 @@
       margin-bottom: 10px;                                                                                                                                                                                                                    
     }                                                                                                                                                                                                                                         
                                                                                                                                                                                                                                               
-    /* Image styles */                                                                                                                                                                                                                        
+    <!-- Image styles -->                                                                                                                                                                                                                     
     .figure, img {                                                                                                                                                                                                                            
       display: block;                                                                                                                                                                                                                         
       max-width: 100%;                                                                                                                                                                                                                        
@@ -86,98 +85,254 @@
       margin: 20px auto;                                                                                                                                                                                                                      
     }                                                                                                                                                                                                                                         
                                                                                                                                                                                                                                               
-    .figcaption {                                                                                                                                                                                                                             
-      text-align: center;                                                                                                                                                                                                                     
-      color: #555;                                                                                                                                                                                                                            
-      margin: 20px auto;                                                                                                                                                                                                                      
+    .figcaption {
+      text-align: center;
+      color: #555;
+      margin: 20px auto;
+    }
+
+    .legend {
+      text-align: center;
+      margin-top: 20px;
+      font-style: italic;
+    }
+<!-- Formatting the help button -->
+    .help-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #322641;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1000;
+    }
+    .chat-box { <!--formatting the chat box produced by the help button-->
+        display: none;
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 300px;                                                                                                                                                                                                                         
+        background-color: white;                                                                                                                                                                                                              
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);                                                                                                                                                                                                 
+        border-radius: 8px;                                                                                                                                                                                                                   
+        padding: 20px;                                                                                                                                                                                                                        
+        z-index: 1001;                                                                                                                                                                                                                        
     }                                                                                                                                                                                                                                         
-                                                                                                                                                                                                                                              
-    .legend {                                                                                                                                                                                                                                 
-      text-align: center;                                                                                                                                                                                                                     
-      margin-top: 20px;                                                                                                                                                                                                                       
-      font-style: italic;                                                                                                                                                                                                                     
+    .legend strong {                                                                                                                                                                                                                          
+        font-weight: bold;                                                                                                                                                                                                                    
+        text-decoration: underline;                                                                                                                                                                                                           
+    }                                                                                                                                                                                                                                         
+    .chat-box button {                                                                                                                                                                                                                        
+         /*formatting for the button itself*/                                                                                                                                                                                                 
+         padding: 8px 16px;                                                                                                                                                                                                                   
+         margin-top: 5px;                                                                                                                                                                                                                     
+        background-color: #322641;                                                                                                                                                                                                            
+        color: white;                                                                                                                                                                                                                         
+        border: none;                                                                                                                                                                                                                         
+        border-radius: 4px;                                                                                                                                                                                                                   
+        cursor: pointer;                                                                                                                                                                                                                      
+    }                                                                                                                                                                                                                                         
+    .chat-box button:hover {                                                                                                                                                                                                                  
+        <!-- So that the text becoems underlined when the cursor hovers over it-->                                                                                                                                                            
+        text-decoration: underline;                                                                                                                                                                                                           
+    }                                                                                                                                                                                                                                         
+    .label {                                                                                                                                                                                                                                  
+	font-weight: bold;
     }
-
-    .legend strong {
-      font-weight: bold;
-      text-decoration: underline;
+    select {
+	padding: 8px 16px;
+        margin: 10px;
+        border-radius: 4px;
+        background-color: #f4f4f9;
+        color: #322641;
+        border: 1px solid #d0cbf0;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        cursor: pointer;
     }
-
-    .label {
-      font-weight: bold;
+    select:hover {
+         background-color: #e2e2f2;
     }
-
-    /* Responsive design considerations */
-    @media (max-width: 768px) {
-      .sidebar {
-        width: 100%;
+    select:focus {
+         outline: none;
+         border: 2px solid #322641;
+    }
+    <!-- Adjusting the margin so that it is not overlapped by the sidebar -->
+   @media (max-width: 768px) {
+   .sidebar {
+	width: 100%;
         height: auto;
         position: relative;
       }
 
-      .content {
-        margin-left: 0;
+   .content {
+	margin-left: 0;
       }
-   }
-  </style>
+    }                                                                                                                                                                                                                                         
+  </style>/*HTML section of the code*/                                                                                                                                                                                                        
   <link rel="icon" href="/favicon.png" sizes="16x16" type="image/png">                                                                                                                                                                        
 </head>                                                                                                                                                                                                                                       
 <body>                                                                                                                                                                                                                                        
-  <header>                                                                                                                                                                                                                                    
-    <h1>Group BTS Genome Dataset Analysis</h1>                                                                                                                                                                                                
-  </header>                                                                                                                                                                                                                                   
-  <div class="sidebar">                                                                                                                                                                                                                       
-    <h2>Contents</h2>                                                                                                                                                                                                                         
-    <ul>                                                                                                                                                                                                                                      
-      <li><a href="#section1">Re-analysis</a></li>                                                                                                                                                                                            
-      <li><a href="#section2">Novel analysis</a></li>                                                                                                                                                                                         
-    </ul>                                                                                                                                                                                                                                     
-  </div>                                                                                                                                                                                                                                      
-  <div class="content">                                                                                                                                                                                                                       
-    <main>                                                                                                                                                                                                                                    
-      <p>Welcome to the Group B(TS) webpage. Here we will provide a summary of our attempts at the analysis by Hamelin et al. (2023), as well as our own cell type clustering pipeline.</p>                                                   
-                                                                                                                                                                                                                                              
-      <h2 id="section1">Re-analysis using the approach described by Hamelin et al. (2023)</h2>                                                                                                                                                
-      <div class="figure">                                                                                                                                                                                                                    
-        <img src="figure_1A.png" alt="Figure 1.A" />                                                                                                                                                                                          
-        <p><i><b>Figure 1a</b>: t-SNE visualisation of quality-controlled single-cell RNA-seq data by cell line. This plot shows the multidimensional scaling of cells into a two-dimensional space after quality control and                 
-filtering of the                                                                                                                                                                                                                              
-raw data. Each colour represents a different cell line, demonstrating the clustering of cells based on gene expression profiles.</i></p>                                                                                                      
+<header>                                                                                                                                                                                                                                      
+<h1>Group BTS Genome Dataset Analysis</h1>                                                                                                                                                                                                    
+</header>                                                                                                                                                                                                                                     
+<div class="sidebar"> <!--Calls the sidebar and the subheadings within it-->                                                                                                                                                                  
+<h2>Contents</h2>                                                                                                                                                                                                                             
+<ul>                                                                                                                                                                                                                                          
+<li><a href="#section1">Re-analysis</a></li>                                                                                                                                                                                                  
+<li><a href="#section2">Novel analysis</a></li>                                                                                                                                                                                               
+</ul>                                                                                                                                                                                                                                         
+</div>                                                                                                                                                                                                                                        
+<div class="content">                                                                                                                                                                                                                         
+<main>                                                                                                                                                                                                                                        
+<p>Welcome to the Group B(TS) webpage. Here we will provide a summary of our attempts at the analysis by Hamelin et al. (2023), as well as our own cell type clustering pipeline.</p>                                                         
+<div class="content">                                                                                                                                                                                                                         
+<main>                                                                                                                                                                                                                                        
+<h2 id="section1"><b>Re-analysis using the approach described by Hamelin et al. (2023)</b></h2>                                                                                                                                               
+        <!-- Dropdown menu for selecting the color scheme -->                                                                                                                                                                                 
+        <select id="colorSchemeSelector" onchange="changeImage()">                                                                                                                                                                            
+            <option value="default">Default Colors</option>                                                                                                                                                                                   
+            <option value="cool">Cool Colors</option>                                                                                                                                                                                         
+            <option value="warm">Warm Colors</option>                                                                                                                                                                                         
+        </select> <!-- Section 1 figures -->                                                                                                                                                                                                  
+        <div class="figure">                                                                                                                                                                                                                  
+            <img src="figure_1A_default.png" alt="Figure 1.A" id="figure_1A"/>                                                                                                                                                                
+            <p><i><b>Figure 1a</b>: t-SNE visualisation of quality-controlled single-cell RNA-seq data by cell line. This plot shows the multidimensional scaling of cells into a two-dimensional space after quality control and filtering > 
+        </div>                                                                                                                                                                                                                                
+	<div class="figure">                                                                                                                                                                                                                  
+            <img src="figure_1B.png" alt="Figure 1.B" />                                                                                                                                                                                      
+            <p><i><b>Figure 1b</b>: t-SNE visualisation of quality-controlled single-cell RNA-seq data by tissue origin. The plot illustrates the results of a t-SNE analysis performed on quality-controlled samples derived from the autho> 
+        </div>                                                                                                                                                                                                                                
+        <div class="figure">                                                                                                                                                                                                                  
+            <img src="librarycomplexity.png" alt="Figure 2.A" />
+            <p><i><b>Figure 2a</b>: Cell clustering in PDX models is delineated by library complexity (PDG). Single cells within PDX models form clusters based on their library complexity.</i></p>
+        </div>
+	<div class="figure">
+            <img src="cellsimilarity.png" alt="Figure 2.B" />
+            <p><i><b>Figure 2b</b>: Cell clustering in PDX models is delineated by cell cycle similarity. Single cells within PDX models form clusters based on their similarity in cell cycle stages.</i></p>                              >
+        </div>
+         <div class="figure">                                                                                                                                                                                                               >
+            <img src="tsneclustering.png" alt="Figure 2.C" />                                                                                                                                                                               >
+            <p><i><b>Figure 2c</b>:  Clustering performed via t-SNE reveals 16 distinct cell clusters within PDX models.</i></p>
+        </div>
+</main>
+</div>
+      <div class="figure">
+        <img src="figure_3a.png" alt="t-SNE PDG Quartiles" />
+        <p><i><b>Figure 3</b>: t-SNE Clustering of Cells by Percentage of Detected Genes(PDG) Quartiles. Colors correspond to PDG quartiles from L1 to L4.</i></p>
+      </div>
+      <div class="figure">
+        <img src="figure_3b.png" alt="Bar Plot PDG Quartiles" />
+        <p><i><b>Figure 4a</b>: Cluster Composition by PDG Quartiles. Colors represent PDG quartiles from L1 to L4 .</i></p>
+  <p><i><b>Figure 4b</b>:Post-Correction Balanced Gene Detection Across Clusters" Post cell cycle correction, this stacked bar chart depicts a more balanced representation of gene detection across clusters. The cell cycle           
+correction process balances the expression profiles,  better capturing the underlying biological variance. .</i></p>                                                                                                                          
       </div>                                                                                                                                                                                                                                  
-      <div class="figure">                                                                                                                                                                                                                    
-        <img src="figure_1B.png" alt="Figure 1.B" />                                                                                                                                                                                          
-        <p><i><b>Figure 1b</b>: t-SNE visualisation of quality-controlled single-cell RNA-seq data by tissue origin. The plot illustrates the results of a t-SNE analysis performed on quality-controlled samples derived from the            
-author's                                                                                                                                                                                                                                      
-processed raw data. Sequenced cells are categorised by tissue origin, with primary tumour samples shown in orange and cells derived from metastatic sites in blue.</i></p>                                                                    
+     <div class="figure">                                                                                                                                                                                                                     
+        <img src="16subclusters.png" alt="Cluster distribution before CC correction" />                                                                                                                                                       
+        <p><i><b>Figure 5a</b>: t-SNE Cluster Distribution Before Cell Cycle Correction (16 Clusters)" This plot represents a t-SNE visualization, which is used to show the natural clustering in the dataset prior to any correction        
+for cell cycle effects.</i></p>                                                                                                                                                                                                               
       </div>                                                                                                                                                                                                                                  
-      <div class="figure">                                                                                                                                                                                                                    
+     <div class="figure">                                                                                                                                                                                                                     
+        <img src="CellCorrectedClustering.png" alt="Cluster distribution after CC correction" />                                                                                                                                              
+        <p><i><b>Figure 5b</b>: t-SNE Cluster Distribution After Cell Cycle Correction (14 Clusters). This plot illustrates a t-SNE visualization post-cell cycle correction, showing the refined clustering after minimizing the             
+variability due to cell cycle differences.</i></p>                                                                                                                                                                                            
+      </div>                                                                                                                                                                                                                                  
+     <div class="figure">                                                                                                                                                                                                                     
+        <img src="dgeaheatmap.png" alt="Heatmap" />                                                                                                                                                                                           
+        <p><i><b>Figure 6</b>: Heatmap of Gene Set Enrichment Across Clusters" This heatmap represents the differential enrichment of gene sets across biological clusters. Each row corresponds to a specific gene set or pathway,           
+and each column represents a cluster. The colour intensity shows the degree of enrichment, with red indicating higher expression and blue indicating lower expression. Hierarchical clustering on both axes groups together gene sets and cl> 
+      </div>                                                                                                                                                                                                                                  
+     <div class="figure">                                                                                                                                                                                                                     
         <img src="figure_2a.png" alt="RFS1" />                                                                                                                                                                                                
-        <p><i><b>Figure 2a</b>: A Recurrence-Free Survival prediction graph for basal-like breast cancer using the upregulated transcripts found in supercluster A. The x-axis labelled as the time of recovery in months and the y           
+        <p><i><b>Figure 7a</b>: A Recurrence-Free Survival prediction graph for basal-like breast cancer using the upregulated transcripts found in supercluster A. The x-axis labelled as the time of recovery in months and the y           
 axis is                                                                                                                                                                                                                                       
 labelled as probability which measures the survival rate of each patient. The mini table below the graph shows the number of patients at risk at each interval, with the 5 intervals being the lower quartile, the lower tertile, the         
 median, the upper tertile and the upper quartile in that order (i.e. for this graph, the lower quartile is 302 and the higher quartile is 0).</i></p>                                                                                         
       </div>                                                                                                                                                                                                                                  
       <div class="figure">                                                                                                                                                                                                                    
         <img src="figure_2b.png" alt="RFS2" />                                                                                                                                                                                                
-        <p><i><b>Figure 2b</b>: A Recurrence-Free Survival prediction graph for basal-like breast cancer using the upregulated transcripts found in supercluster B. The x-axis labelled as the time of recovery in months and the y           
+        <p><i><b>Figure 7b</b>: A Recurrence-Free Survival prediction graph for basal-like breast cancer using the upregulated transcripts found in supercluster B. The x-axis labelled as the time of recovery in months and the y           
 axis is labelled as probability which measures the survival rate of each patient. The mini table below the graph shows the number of patients at risk at each interval, with the 5 intervals being the lower quartile, the lower              
 tertile, the median, the upper tertile and the upper quartile in that order (i.e. for this graph, the lower quartile is 309 and the higher quartile is 0).</i></p>                                                                            
       </div>                                                                                                                                                                                                                                  
       <div class="figure">                                                                                                                                                                                                                    
         <img src="figure_2c.png" alt="RFS3" />                                                                                                                                                                                                
-        <p><i><b>Figure 2c</b>: A Recurrence-Free Survival prediction graph for basal-like breast cancer using the upregulated transcripts found in supercluster C. The x-axis labelled as the time of recovery in months and the y           
+        <p><i><b>Figure 7c</b>: A Recurrence-Free Survival prediction graph for basal-like breast cancer using the upregulated transcripts found in supercluster C. The x-axis labelled as the time of recovery in months and the y           
 axis is labelled as probability which measures the survival rate of each patient. The mini table below the graph shows the number of patients at risk at each interval, with the 5 intervals being the lower quartile, the lower              
 tertile, the median, the upper tertile and the upper quartile in that order (i.e. for this graph, the lower quartile is 314 and the higher quartile is 0).</i></p>                                                                            
     </div>                                                                                                                                                                                                                                    
-      <div class="figure">                                                                                                                                                                                                                    
-        <img src="figure_3a.png" alt="t-SNE PDG Quartiles" />                                                                                                                                                                                 
-        <p><i><b>Figure 3a</b>: t-SNE Clustering of Cells by Percentage of Detected Genes(PDG) Quartiles. Colors correspond to PDG quartiles from L1 to L4.</i></p>                                                                           
-      </div>                                                                                                                                                                                                                                  
-      <div class="figure">                                                                                                                                                                                                                    
-        <img src="figure_3b.png" alt="Bar Plot PDG Quartiles" />                                                                                                                                                                              
-        <p><i><b>Figure 3b</b>: Cluster Composition by PDG Quartiles. Colors represent PDG quartiles from L1 to L4 .</i></p>                                                                                                                  
-      </div>                                                                                                                                                                                                                                  
-    </main> 
+<h2 id="section2"><b>Our novel analysis</b></h2> <!-- Section 2 figures -->                                                                                                                                                                   
+<div class="figure">                                                                                                                                                                                                                          
+            <img src="tsnenovel.png" alt="Figure 8.A"/>                                                                                                                                                                                       
+            <p><i><b>Figure 8a</b>:tSNE clustering by origin" This t-SNE plot displays the distribution of cells found at the metastatic sites (blue) and at the tumour sites (orange) applied. The plot reveals the clustering               
+tendencies of the cells bas on their origin.</i></p>                                                                                                                                                                                          
+        </div>                                                                                                                                                                                                                                
+<div class="figure">                                                                                                                                                                                                                        > 
+            <img src="tsne_cellline.png" alt="Figure 8.B"/>                                                                                                                                                                                 > 
+            <p><i><b>Figure 8b</b>: tSNE clustering by model : This t-SNE plot displays the distribution of cells by the model they were derived from PDX1-4 and MDAMB231 . The plot reveals the clustering tendencies of the cells           
+based on model it is derived from.</i></p>                                                                                                                                                                                                    
+        </div>                                                                                                                                                                                                                                
+ <div class="figure">                                                                                                                                                                                                                         
+            <img src="cellcycleprecorrection.png" alt="Figure 9.A" />                                                                                                                                                                         
+            <p><i><b>Figure 9a</b>: Cell Cycle Phase Distribution Before Correction. This t-SNE plot displays the distribution of cell cycle phases before any correction, with each dot representing a single cell. The colors               
+signify different phases of the cell cycle. The plot reveals the clustering tendency of cells in different cycle phases before the correction was applied.</i></p>
+        </div>
+<div class="figure">
+            <img src="cellcyclepostcorrection.png" alt="Figure 9.B" />
+            <p><i><b>Figure 9b</b>:Cell Cycle Phase Distribution After Correction" The PCA plot illustrates the cell distribution across cell cycle phases after correction, with each point indicating an individual cell.  The
+correction process aims to reduce the influence of cell cycle-related variability, reflected in a more dispersed and less phase-clustered distribution.</i></p>                                                                             >
+        </div>
+<!-- Calling the help Button -->                                                                                                                                                                                                              
+    <div class="help-button" onclick="toggleChatBox()">?</div>                                                                                                                                                                                
+                                                                                                                                                                                                                                              
+    <!-- Calling the chat Box and defining the text within it -->                                                                                                                                                                             
+<div class="chat-box" id="chatBox" style="display: none;">                                                                                                                                                                                    
+    <h2>Help Center</h2>                                                                                                                                                                                                                      
+    <ul>                                                                                                                                                                                                                                      
+        <li><button onclick="showAnswer('use')">How to use this website?</button></li> <!-- Defining the buttons-->                                                                                                                           
+        <li><button onclick="showAnswer('changeColor')">How to change the color scheme?</button></li>                                                                                                                                         
+    </ul>                                                                                                                                                                                                                                     
+    <div id="answer"></div>                                                                                                                                                                                                                   
+    <button onclick="toggleChatBox()">Close</button>                                                                                                                                                                                          
+</div>                                                                                                                                                                                                                                        
+    <div class="chat-box" id="chatBox">                                                                                                                                                                                                       
+        <h2>Help Center</h2> <!-- Defining the answers to the buttons -->                                                                                                                                                                     
+        <p><strong>How to use this website?</strong><br>                                                                                                                                                                                      
+        Navigate through the website using the menu on the left. Click on different sections to learn more.</p>                                                                                                                               
+        <p><strong>How to change the color scheme?</strong><br>                                                                                                                                                                               
+        Use the dropdown menu at the top of the page to select different color themes for the visualizations.</p>                                                                                                                             
+        <button onclick="toggleChatBox()">Close</button>                                                                                                                                                                                      
+    </div>                                                                                                                                                                                                                                    
+<div>                                                                                                                                                                                                                                         
+    <script> <!-- Javascript section -->                                                                                                                                                                                                      
+        function toggleChatBox() { <!-- defining the javascript for the toggleChatBox() function -->                                                                                                                                          
+    var chatBox = document.getElementById('chatBox');                                                                                                                                                                                         
+    chatBox.style.display = (chatBox.style.display === "none") ? "block" : "none";                                                                                                                                                            
+    document.getElementById('answer').innerHTML = '';  // Clear previous answer                                                                                                                                                               
+}                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                              
+function showAnswer(topic) { <!-- defines the showAnswer() function -->                                                                                                                                                                       
+    var answerText = '';                                                                                                                                                                                                                      
+    switch (topic) {                                                                                                                                                                                                                          
+        case 'use':                                                                                                                                                                                                                           
+            answerText = 'Navigate through the website using the menu on the left. Click on different sections to learn more.';                                                                                                               
+            break;                                                                                                                                                                                                                            
+        case 'changeColor':                                                                                                                                                                                                                   
+            answerText = 'Use the dropdown menu at the top of the page to select different color themes for the visualizations.';                                                                                                             
+            break;                                                                                                                                                                                                                            
+    }                                                                                                                                                                                                                                         
+    document.getElementById('answer').innerHTML = '<p><strong>' + answerText + '</strong></p>';                                                                                                                                               
+}                                                                                                                                                                                                                                             
+function changeImage() { <!-- Defines the changeImage() function -->                                                                                                                                                                          
+    var selectedScheme = document.getElementById('colorSchemeSelector').value;                                                                                                                                                                
+    document.getElementById('figure_1A').src = 'figure_1A_' + selectedScheme + '.png';                                                                                                                                                        
+    }                                                                                                                                                                                                                                         
+    </script>                                                                                                                                                                                                                                 
   </div>                                                                                                                                                                                                                                      
   <footer>                                                                                                                                                                                                                                    
     <!-- Site-wide footer -->                                                                                                                                                                                                                 
